@@ -18,12 +18,14 @@
           --white: #ffffff;
           --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
-          /* Vibrant Background Palette */
-          --bg-soft-blue: #e0f2fe;
-          --bg-soft-teal: #ccfbf1;
-          --bg-soft-purple: #f3e8ff;
-          --bg-soft-yellow: #fef3c7;
-          --bg-card-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+          /* Vibrant Multi-Color Palette */
+          --gradient-hero: linear-gradient(135deg, rgba(10, 37, 64, 0.92) 0%, rgba(124, 58, 237, 0.85) 50%, rgba(14, 165, 233, 0.88) 100%);
+          --gradient-about: linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 50%, #e0e7ff 100%);
+          --gradient-services: linear-gradient(135deg, #eef2ff 0%, #e0f2fe 50%, #ccfbf1 100%);
+          --gradient-industries: linear-gradient(135deg, #f0fdf4 0%, #ccfbf1 50%, #e0e7ff 100%);
+          --gradient-tools: linear-gradient(135deg, #fef3c7 0%, #fed7aa 50%, #fecdd3 100%);
+          --gradient-resources: linear-gradient(135deg, #f3e8ff 0%, #fae8ff 50%, #e0e7ff 100%);
+          --gradient-pricing: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 50%, #e0e7ff 100%);
       }
 
       * {
@@ -38,7 +40,7 @@
       }
 
       body {
-          background: linear-gradient(180deg, #e0f2fe 0%, #f0fdfa 50%, #f3e8ff 100%);
+          background-color: var(--light);
           color: var(--dark);
           line-height: 1.6;
       }
@@ -50,7 +52,7 @@
 
       /* Top Utility Bar */
       .top-bar {
-          background: linear-gradient(90deg, #0a2540 0%, #0d3154 100%);
+          background: linear-gradient(90deg, #0a2540 0%, #1e1b4b 50%, #0d3154 100%);
           color: var(--white);
           padding: 8px 5%;
           font-size: 0.85rem;
@@ -95,27 +97,26 @@
       }
 
       .consult-btn-sm {
-          background-color: var(--primary);
+          background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
           color: var(--white) !important;
           padding: 4px 12px;
           border-radius: 4px;
           font-weight: 600;
           border: 1px solid rgba(255, 255, 255, 0.3);
-          transition: background-color 0.2s, border-color 0.2s;
+          transition: transform 0.2s;
       }
 
       .consult-btn-sm:hover {
-          background-color: #0d3154 !important;
-          border-color: var(--accent);
-          color: var(--white) !important;
+          transform: translateY(-1px);
       }
 
-      /* Navigation Header */
+      /* Header Navigation */
       header {
-          background: linear-gradient(135deg, rgba(240, 249, 255, 0.95) 0%, rgba(224, 242, 254, 0.95) 100%);
-          backdrop-filter: blur(10px);
-          box-shadow: 0 4px 20px rgba(10, 37, 64, 0.1);
-          border-bottom: 2px solid var(--accent);
+          background: rgba(255, 255, 255, 0.92);
+          backdrop-filter: blur(12px);
+          box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+          border-bottom: 3px solid transparent;
+          border-image: linear-gradient(90deg, #0073e6, #8b5cf6, #06b6d4) 1;
           position: sticky;
           top: 0;
           z-index: 1000;
@@ -145,7 +146,9 @@
       }
 
       .brand-logo span {
-          color: var(--secondary);
+          background: linear-gradient(135deg, #0073e6 0%, #8b5cf6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
       }
 
       .brand-subtext {
@@ -171,7 +174,6 @@
           padding: 10px 0;
           cursor: pointer;
           transition: color 0.2s;
-          white-space: nowrap;
       }
 
       .nav-link:hover {
@@ -179,17 +181,16 @@
       }
 
       .nav-link-payment {
-          color: #059669 !important;
-          background: #ecfdf5;
-          border: 1px solid #10b981;
-          padding: 6px 14px !important;
-          border-radius: 4px;
-          transition: all 0.2s ease;
+          color: #ffffff !important;
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          padding: 8px 16px !important;
+          border-radius: 6px;
+          box-shadow: 0 4px 10px rgba(16, 185, 129, 0.25);
+          transition: transform 0.2s;
       }
 
       .nav-link-payment:hover {
-          background-color: #10b981;
-          color: var(--white) !important;
+          transform: translateY(-2px);
       }
 
       .menu-toggle {
@@ -207,15 +208,14 @@
           height: 3px;
           background-color: var(--primary);
           border-radius: 2px;
-          transition: all 0.3s ease;
       }
 
-      /* Hero Section with Image Background */
+      /* Hero Section */
       .hero {
-          background: linear-gradient(135deg, rgba(10, 37, 64, 0.92) 0%, rgba(30, 58, 138, 0.88) 100%),
+          background: var(--gradient-hero),
           url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
           color: var(--white);
-          padding: 120px 5% 140px 5%;
+          padding: 130px 5% 150px 5%;
           text-align: center;
           position: relative;
       }
@@ -226,15 +226,16 @@
       }
 
       .hero h1 {
-          font-size: 3.2rem;
+          font-size: 3.4rem;
           line-height: 1.2;
           margin-bottom: 20px;
-          font-weight: 700;
+          font-weight: 800;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.2);
       }
 
       .hero p {
-          font-size: 1.25rem;
-          color: #e2e8f0;
+          font-size: 1.3rem;
+          color: #f1f5f9;
           margin-bottom: 35px;
       }
 
@@ -248,46 +249,45 @@
       /* Button Styles */
       .btn {
           padding: 14px 28px;
-          border-radius: 6px;
-          font-weight: 600;
+          border-radius: 8px;
+          font-weight: 700;
           cursor: pointer;
           border: none;
-          transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+          transition: transform 0.2s, box-shadow 0.2s;
           display: inline-block;
           text-align: center;
       }
 
       .btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       }
 
       .btn-primary {
-          background-color: var(--secondary);
+          background: linear-gradient(135deg, #0073e6 0%, #0284c7 100%);
           color: var(--white);
       }
 
       .btn-secondary {
-          background-color: rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(5px);
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(8px);
           color: var(--white);
-          border: 2px solid var(--white);
+          border: 2px solid rgba(255, 255, 255, 0.8);
       }
 
       .btn-yellow {
-          background-color: var(--yellow);
-          color: #0f172a;
-          font-weight: 700;
+          background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+          color: #ffffff;
       }
 
-      .btn-yellow:hover {
-          background-color: var(--yellow-hover);
-          color: #0f172a;
+      .btn-purple {
+          background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+          color: #ffffff;
       }
 
-      /* Sections & Colored Backgrounds */
+      /* Section Styling & Colorful Backgrounds */
       .section-padding {
-          padding: 90px 5%;
+          padding: 100px 5%;
           max-width: 1400px;
           margin: 0 auto;
       }
@@ -298,220 +298,309 @@
       }
 
       .section-header h2 {
-          font-size: 2.2rem;
+          font-size: 2.5rem;
           color: var(--primary);
           margin-bottom: 15px;
+          font-weight: 800;
       }
 
       .section-header p {
           color: var(--gray);
-          font-size: 1.1rem;
-          max-width: 700px;
+          font-size: 1.15rem;
+          max-width: 750px;
           margin: 0 auto;
       }
 
-      /* Section Background Colorful Variations */
-      .bg-soft-blue {
-          background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%);
-      }
+      .bg-about { background: var(--gradient-about); }
+      .bg-services { background: var(--gradient-services); }
+      .bg-industries { background: var(--gradient-industries); }
+      .bg-tools { background: var(--gradient-tools); }
+      .bg-resources { background: var(--gradient-resources); }
+      .bg-pricing { background: var(--gradient-pricing); }
 
-      .bg-soft-teal {
-          background: linear-gradient(180deg, #ccfbf1 0%, #99f6e4 100%);
-      }
-
-      .bg-soft-purple {
-          background: linear-gradient(180deg, #f3e8ff 0%, #e9d5ff 100%);
-      }
-
-      .bg-gradient-light {
-          background: linear-gradient(180deg, #e0e7ff 0%, #dbeafe 100%);
-      }
-
-      /* About Section */
+      /* About Section Cards & Banner */
       .about-badges {
           display: flex;
           justify-content: center;
-          gap: 20px;
+          gap: 15px;
           flex-wrap: wrap;
-          margin-top: 20px;
+          margin-top: 25px;
       }
 
       .about-badge {
-          background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
-          border: 1px solid #7dd3fc;
-          padding: 8px 18px;
+          background: #ffffff;
+          border: 2px solid #a5b4fc;
+          padding: 8px 20px;
+          border-radius: 25px;
+          font-weight: 700;
+          font-size: 0.95rem;
+          color: #4f46e5;
+          box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+      }
+
+      .about-hero-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+          margin-bottom: 40px;
+          align-items: center;
+      }
+
+      .about-img-frame {
           border-radius: 20px;
-          font-weight: 600;
-          font-size: 0.9rem;
-          color: var(--secondary);
-          box-shadow: 0 4px 10px rgba(0,115,230,0.12);
+          overflow: hidden;
+          box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+          position: relative;
+          height: 100%;
+          min-height: 320px;
+      }
+
+      .about-img-frame img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+      }
+
+      .about-img-overlay {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          background: linear-gradient(180deg, transparent 0%, rgba(10, 37, 64, 0.85) 100%);
+          color: #ffffff;
+          padding: 25px;
+      }
+
+      .about-img-overlay h4 {
+          font-size: 1.3rem;
+          color: #38bdf8;
       }
 
       .mission-box {
-          background: linear-gradient(135deg, rgba(10, 37, 64, 0.95) 0%, rgba(30, 58, 138, 0.9) 100%),
+          background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(88, 28, 135, 0.88) 100%),
           url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat;
           color: var(--white);
           padding: 50px 40px;
-          border-radius: 16px;
+          border-radius: 20px;
           text-align: center;
-          margin: 40px 0;
-          box-shadow: 0 10px 25px rgba(10, 37, 64, 0.2);
+          box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
       }
 
       .mission-box h3 {
-          font-size: 1.4rem;
-          color: var(--accent);
+          font-size: 1.5rem;
+          color: #38bdf8;
           margin-bottom: 15px;
           text-transform: uppercase;
-          letter-spacing: 1px;
+          letter-spacing: 1.5px;
       }
 
       .mission-box blockquote {
-          font-size: 1.3rem;
+          font-size: 1.25rem;
           font-style: italic;
           line-height: 1.6;
-          max-width: 800px;
+          max-width: 850px;
           margin: 0 auto;
       }
 
       .stats-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 20px;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 25px;
           margin: 40px 0;
           text-align: center;
       }
 
       .stat-card {
-          background: linear-gradient(145deg, #ffffff 0%, #dbeafe 100%);
-          border: 2px solid #93c5fd;
-          border-radius: 12px;
-          padding: 25px;
-          box-shadow: 0 6px 15px rgba(0, 115, 230, 0.12);
+          background: #ffffff;
+          border-radius: 16px;
+          padding: 30px;
+          box-shadow: 0 10px 25px rgba(99, 102, 241, 0.12);
+          border-top: 5px solid #6366f1;
       }
 
       .stat-number {
-          font-size: 2.8rem;
+          font-size: 3rem;
           font-weight: 800;
-          color: var(--secondary);
-          line-height: 1.1;
+          background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
       }
 
-      .stat-label {
-          font-size: 0.95rem;
-          color: var(--gray);
-          font-weight: 600;
-          margin-top: 5px;
-      }
-
+      /* Core Values Cards with Images */
       .values-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
           gap: 25px;
       }
 
       .value-card {
-          background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-          border-top: 5px solid var(--secondary);
-          border-radius: 12px;
-          padding: 30px;
-          box-shadow: 0 6px 15px rgba(0, 115, 230, 0.1);
-          border-left: 1px solid #bae6fd;
-          border-right: 1px solid #bae6fd;
-          border-bottom: 1px solid #bae6fd;
-      }
-
-      .value-card .icon {
-          font-size: 2rem;
-          margin-bottom: 15px;
-      }
-
-      .value-card h4 {
-          font-size: 1.2rem;
-          color: var(--primary);
-          margin-bottom: 10px;
-      }
-
-      .value-card p {
-          color: var(--gray);
-          font-size: 0.92rem;
-      }
-
-      /* Grids */
-      .grid-3-col {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 30px;
-      }
-
-      .grid-2-col {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-          gap: 30px;
-      }
-
-      .grid-4-col {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-          gap: 25px;
-      }
-
-      .card-box {
-          background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-          border: 1px solid #d8b4fe;
-          border-radius: 12px;
-          padding: 30px;
-          box-shadow: 0 6px 15px rgba(147, 51, 234, 0.08);
-          transition: transform 0.2s, box-shadow 0.2s;
-      }
-
-      .card-box:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 24px rgba(147, 51, 234, 0.15);
-      }
-
-      .card-box h3 {
-          font-size: 1.4rem;
-          color: var(--primary);
-          margin-bottom: 12px;
-      }
-
-      .card-box p {
-          color: var(--gray);
-          font-size: 0.95rem;
-          margin-bottom: 15px;
-      }
-
-      /* Industry Specific Cards with Images */
-      .industry-card {
-          background: linear-gradient(180deg, #f0fdfa 0%, #ccfbf1 100%);
-          border-radius: 12px;
+          background: #ffffff;
+          border-radius: 20px;
           overflow: hidden;
-          box-shadow: 0 8px 20px rgba(13, 148, 136, 0.12);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+          border-left: 6px solid #8b5cf6;
+          transition: transform 0.25s, box-shadow 0.25s;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          border: 1px solid #99f6e4;
       }
 
-      .industry-card-img {
+      .value-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 18px 35px rgba(139, 92, 246, 0.18);
+      }
+
+      .value-card-img {
           height: 160px;
           width: 100%;
           object-fit: cover;
       }
 
-      .industry-card-body {
+      .value-card-body {
           padding: 25px;
+          flex-grow: 1;
+      }
+
+      .value-card-header {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 12px;
+      }
+
+      .value-card .icon {
+          font-size: 1.8rem;
+          background: #f3e8ff;
+          width: 45px;
+          height: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 12px;
+          flex-shrink: 0;
+      }
+
+      .value-card h4 {
+          font-size: 1.2rem;
+          color: var(--primary);
+      }
+
+      /* Services Feature Cards */
+      .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+          gap: 35px;
+      }
+
+      .service-card {
+          background: #ffffff;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border: 1px solid #e2e8f0;
+          transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .service-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .service-img-header {
+          height: 180px;
+          width: 100%;
+          object-fit: cover;
+      }
+
+      .service-body {
+          padding: 35px;
+          flex-grow: 1;
+      }
+
+      .service-card h3 {
+          font-size: 1.6rem;
+          color: var(--primary);
+          margin-bottom: 12px;
+      }
+
+      .service-block {
+          margin-bottom: 20px;
+      }
+
+      .service-block h4 {
+          font-size: 1rem;
+          color: #4f46e5;
+          margin-bottom: 8px;
+      }
+
+      .service-block ul {
+          list-style: none;
+      }
+
+      .service-block ul li {
+          font-size: 0.92rem;
+          color: var(--dark);
+          margin-bottom: 6px;
+          padding-left: 20px;
+          position: relative;
+      }
+
+      .service-block ul li::before {
+          content: "✔";
+          color: #10b981;
+          font-weight: bold;
+          position: absolute;
+          left: 0;
+      }
+
+      .service-actions {
+          padding: 0 35px 35px 35px;
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+      }
+
+      /* Industry Specific Cards */
+      .grid-2-col {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 35px;
+      }
+
+      .industry-card {
+          background: #ffffff;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 12px 30px rgba(13, 148, 136, 0.1);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border: 1px solid #ccfbf1;
+      }
+
+      .industry-card-img {
+          height: 200px;
+          width: 100%;
+          object-fit: cover;
+      }
+
+      .industry-card-body {
+          padding: 30px;
       }
 
       .industry-card-header {
           margin-bottom: 20px;
-          border-bottom: 1px solid #99f6e4;
+          border-bottom: 2px solid #f0fdf4;
           padding-bottom: 15px;
       }
 
       .industry-card-header h3 {
-          font-size: 1.4rem;
+          font-size: 1.5rem;
           color: var(--primary);
       }
 
@@ -523,301 +612,183 @@
           font-size: 1rem;
           color: var(--primary);
           margin-bottom: 10px;
-          display: flex;
-          align-items: center;
-          gap: 6px;
       }
 
       .industry-section-block ul {
           list-style: none;
-          padding-left: 0;
       }
 
       .industry-section-block ul li {
-          font-size: 0.9rem;
-          color: var(--dark);
+          font-size: 0.92rem;
           margin-bottom: 6px;
+          padding-left: 20px;
           position: relative;
-          padding-left: 18px;
       }
 
       .industry-section-block.pain-points ul li::before {
-          content: "•";
+          content: "✖";
           color: #ef4444;
-          font-weight: bold;
           position: absolute;
           left: 0;
       }
 
-      .industry-section-block.solutions ul li::before {
-          content: "✓";
-          color: #10b981;
-          font-weight: bold;
-          position: absolute;
-          left: 0;
+      /* Enhanced Results Cards */
+      .grid-3-col {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
       }
 
       .results-card {
-          background: linear-gradient(180deg, #ecfdf5 0%, #d1fae5 100%);
-          border: 1px solid #6ee7b7;
-          border-top: 5px solid #10b981;
-          border-radius: 12px;
-          padding: 25px;
-          box-shadow: 0 6px 15px rgba(16, 185, 129, 0.1);
-      }
-
-      .results-card .highlight {
-          font-size: 1.4rem;
-          font-weight: 700;
-          color: #047857;
-          margin: 5px 0 15px 0;
-      }
-
-      /* Tools Section */
-      .tools-container {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 20px;
-      }
-
-      .tool-pill {
-          background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 100%);
-          border: 1px solid #7dd3fc;
-          padding: 20px;
-          border-radius: 10px;
-          text-align: center;
-          font-weight: 700;
-          color: var(--primary);
-          box-shadow: 0 4px 12px rgba(0, 115, 230, 0.08);
-          transition: all 0.2s;
-      }
-
-      .tool-pill:hover {
-          border-color: var(--secondary);
-          transform: translateY(-2px);
-          box-shadow: 0 8px 18px rgba(0, 115, 230, 0.18);
-      }
-
-      /* Services Styling */
-      .services-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-          gap: 30px;
-          align-items: stretch;
-      }
-
-      .service-card {
-          background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
-          border-radius: 14px;
-          padding: 35px;
-          box-shadow: 0 8px 24px rgba(0, 115, 230, 0.12);
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          border: 1px solid #bae6fd;
-          border-top: 5px solid var(--secondary);
-          transition: transform 0.2s, box-shadow 0.2s;
-      }
-
-      .service-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 14px 28px rgba(0, 115, 230, 0.18);
-      }
-
-      .service-card h3 {
-          font-size: 1.6rem;
-          color: var(--primary);
-          margin-bottom: 10px;
-      }
-
-      .service-description {
-          color: var(--gray);
-          font-size: 0.98rem;
-          margin-bottom: 25px;
-      }
-
-      .service-block {
-          margin-bottom: 20px;
-      }
-
-      .service-block h4 {
-          font-size: 1rem;
-          color: var(--primary);
-          margin-bottom: 8px;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-      }
-
-      .service-block ul {
-          list-style: none;
-          padding-left: 0;
-      }
-
-      .service-block ul li {
-          font-size: 0.9rem;
-          color: var(--dark);
-          margin-bottom: 6px;
-          position: relative;
-          padding-left: 18px;
-      }
-
-      .service-block ul li::before {
-          content: "•";
-          color: var(--secondary);
-          font-weight: bold;
-          position: absolute;
-          left: 0;
-      }
-
-      .faq-item {
-          background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-          padding: 12px;
-          border-radius: 6px;
-          margin-bottom: 10px;
-          font-size: 0.88rem;
-          border-left: 3px solid var(--secondary);
-          border: 1px solid #93c5fd;
-      }
-
-      .faq-item strong {
-          color: var(--primary);
-          display: block;
-          margin-bottom: 4px;
-      }
-
-      .service-actions {
-          margin-top: 25px;
-          display: flex;
-          gap: 12px;
-          flex-wrap: wrap;
-      }
-
-      /* Pricing Section Styling */
-      .pricing-badge {
-          display: inline-block;
-          background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%);
-          color: var(--primary);
-          padding: 6px 16px;
+          background: #ffffff;
           border-radius: 20px;
-          font-size: 0.85rem;
-          font-weight: 700;
-          margin-bottom: 15px;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          border: 1px solid #60a5fa;
-      }
-
-      .pricing-promises {
-          display: flex;
-          justify-content: center;
-          gap: 25px;
-          flex-wrap: wrap;
-          margin-top: 20px;
-          font-weight: 600;
-          color: var(--primary);
-          font-size: 0.95rem;
-      }
-
-      .pricing-promises span {
-          color: #059669;
-      }
-
-      .pricing-card {
-          background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
-          border: 1px solid #93c5fd;
-          border-radius: 14px;
-          padding: 35px 25px;
-          box-shadow: 0 6px 18px rgba(0, 115, 230, 0.08);
+          overflow: hidden;
+          box-shadow: 0 12px 30px rgba(16, 185, 129, 0.12);
+          border: 1px solid #a7f3d0;
+          transition: transform 0.25s, box-shadow 0.25s;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
-          position: relative;
-          transition: transform 0.2s, box-shadow 0.2s;
       }
 
-      .pricing-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 12px 24px rgba(0, 115, 230, 0.16);
+      .results-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 18px 40px rgba(16, 185, 129, 0.22);
       }
 
-      .pricing-card.popular {
-          background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
-          border: 2px solid var(--secondary);
-          transform: scale(1.03);
-          z-index: 2;
-          box-shadow: 0 12px 28px rgba(0, 115, 230, 0.22);
+      .results-card-img {
+          height: 180px;
+          width: 100%;
+          object-fit: cover;
       }
 
-      .popular-tag {
-          position: absolute;
-          top: -14px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: var(--secondary);
-          color: var(--white);
-          padding: 4px 14px;
-          border-radius: 12px;
-          font-size: 0.75rem;
-          font-weight: 700;
-          text-transform: uppercase;
+      .results-card-body {
+          padding: 30px;
+          flex-grow: 1;
       }
 
-      .price-header h3 {
-          font-size: 1.4rem;
+      .results-card h4 {
+          font-size: 1.25rem;
           color: var(--primary);
           margin-bottom: 5px;
       }
 
-      .price-header .sub {
-          font-size: 0.85rem;
-          color: var(--gray);
-          min-height: 40px;
-          margin-bottom: 15px;
-      }
-
-      .price-amount {
-          font-size: 2.5rem;
+      .results-card .highlight {
+          font-size: 1.45rem;
           font-weight: 800;
+          color: #047857;
+          margin: 10px 0 12px 0;
+      }
+
+      /* Enhanced Tools Section with Visual Brand Cards */
+      .tools-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 25px;
+      }
+
+      .tool-card {
+          background: #ffffff;
+          border-radius: 18px;
+          overflow: hidden;
+          box-shadow: 0 10px 25px rgba(245, 158, 11, 0.12);
+          border: 2px solid #fde68a;
+          transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+          text-align: center;
+      }
+
+      .tool-card:hover {
+          transform: translateY(-6px);
+          border-color: #f59e0b;
+          box-shadow: 0 18px 35px rgba(245, 158, 11, 0.22);
+      }
+
+      .tool-card-img {
+          height: 110px;
+          width: 100%;
+          object-fit: cover;
+      }
+
+      .tool-card-body {
+          padding: 20px;
+      }
+
+      .tool-card-body h4 {
+          font-size: 1.15rem;
           color: var(--primary);
-          margin-bottom: 20px;
-          display: flex;
-          align-items: baseline;
+          font-weight: 800;
+          margin-bottom: 5px;
       }
 
-      .price-amount span {
-          font-size: 1rem;
-          font-weight: 500;
-          color: var(--gray);
+      .tool-card-body span {
+          font-size: 0.85rem;
+          color: #b45309;
+          font-weight: 600;
       }
 
-      .feature-list {
-          list-style: none;
-          margin-bottom: 25px;
-      }
-
-      .feature-list li {
-          font-size: 0.88rem;
-          color: var(--dark);
-          margin-bottom: 10px;
-          display: flex;
-          align-items: flex-start;
-          gap: 8px;
-      }
-
-      .feature-list li .check {
-          color: #059669;
-          font-weight: bold;
-          flex-shrink: 0;
-      }
-
-      /* Calculator Box */
-      .calculator-box {
-          background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-          border: 2px solid #7dd3fc;
+      /* Resources Cards */
+      .card-box {
+          background: #ffffff;
           border-radius: 16px;
-          padding: 35px;
-          box-shadow: 0 10px 30px rgba(0, 115, 230, 0.15);
+          overflow: hidden;
+          padding: 0;
+          border-top: 6px solid #a855f7;
+          box-shadow: 0 10px 25px rgba(168, 85, 247, 0.12);
+          transition: transform 0.2s, box-shadow 0.2s;
+          display: flex;
+          flex-direction: column;
+      }
+
+      .card-box:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(168, 85, 247, 0.22);
+      }
+
+      .card-box-img {
+          height: 180px;
+          width: 100%;
+          object-fit: cover;
+      }
+
+      .card-box-body {
+          padding: 30px;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          justify-content: space-between;
+      }
+
+      .card-box h3 {
+          font-size: 1.4rem;
+          color: var(--primary);
+          margin-bottom: 12px;
+      }
+
+      .card-box p {
+          color: var(--gray);
+          font-size: 0.95rem;
+          margin-bottom: 20px;
+      }
+
+      /* Pricing Section Cards & Calculator */
+      .pricing-badge {
+          display: inline-block;
+          background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+          color: var(--white);
+          padding: 6px 20px;
+          border-radius: 20px;
+          font-size: 0.88rem;
+          font-weight: 800;
+          margin-bottom: 15px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+      }
+
+      .calculator-box {
+          background: #ffffff;
+          border: 3px solid #7dd3fc;
+          border-radius: 20px;
+          padding: 40px;
+          box-shadow: 0 15px 35px rgba(0, 115, 230, 0.15);
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 40px;
@@ -827,7 +798,7 @@
 
       .calculator-controls label {
           display: block;
-          font-weight: 600;
+          font-weight: 700;
           color: var(--primary);
           margin-bottom: 8px;
       }
@@ -839,58 +810,113 @@
       }
 
       .calc-display-card {
-          background: linear-gradient(135deg, var(--primary) 0%, #1e3a8a 100%);
+          background: linear-gradient(135deg, #0a2540 0%, #1e1b4b 100%);
           color: var(--white);
-          padding: 30px;
-          border-radius: 12px;
+          padding: 35px;
+          border-radius: 16px;
           text-align: center;
-          box-shadow: 0 8px 20px rgba(10, 37, 64, 0.3);
-      }
-
-      .calc-display-card h4 {
-          font-size: 1.1rem;
-          color: #cbd5e1;
-          margin-bottom: 10px;
+          box-shadow: 0 10px 25px rgba(10, 37, 64, 0.3);
       }
 
       .calc-display-card .cost-num {
-          font-size: 3rem;
+          font-size: 3.2rem;
           font-weight: 800;
-          color: var(--accent);
+          color: #38bdf8;
           margin-bottom: 15px;
       }
 
-      .cleanup-card {
-          background: linear-gradient(180deg, #f0fdfa 0%, #ccfbf1 100%);
-          border: 1px solid #99f6e4;
-          border-radius: 10px;
-          padding: 25px;
+      .grid-4-col {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 25px;
+      }
+
+      .pricing-card {
+          background: #ffffff;
+          border: 2px solid #e2e8f0;
+          border-radius: 18px;
+          padding: 35px 25px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
           position: relative;
-          box-shadow: 0 4px 12px rgba(13, 148, 136, 0.08);
+          transition: transform 0.2s;
       }
 
-      .cleanup-card.recommended {
-          background: linear-gradient(180deg, #ecfdf5 0%, #a7f3d0 100%);
-          border: 2px solid #10b981;
+      .pricing-card:hover {
+          transform: translateY(-5px);
       }
 
-      .rec-tag {
+      .pricing-card.popular {
+          border: 3px solid #8b5cf6;
+          box-shadow: 0 15px 35px rgba(139, 92, 246, 0.2);
+          transform: scale(1.03);
+      }
+
+      .popular-tag {
           position: absolute;
-          top: -12px;
-          right: 15px;
-          background: #10b981;
+          top: -15px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
           color: var(--white);
-          padding: 2px 10px;
-          border-radius: 10px;
-          font-size: 0.72rem;
-          font-weight: 700;
+          padding: 4px 16px;
+          border-radius: 12px;
+          font-size: 0.75rem;
+          font-weight: 800;
+          text-transform: uppercase;
+      }
+
+      .price-amount {
+          font-size: 2.6rem;
+          font-weight: 800;
+          color: var(--primary);
+          margin: 15px 0;
+      }
+
+      .feature-list {
+          list-style: none;
+          margin-bottom: 25px;
+      }
+
+      .feature-list li {
+          font-size: 0.9rem;
+          color: var(--dark);
+          margin-bottom: 10px;
+          display: flex;
+          gap: 8px;
+      }
+
+      .feature-list li .check {
+          color: #10b981;
+          font-weight: bold;
+      }
+
+      /* Image Banners */
+      .banner-callout {
+          text-align: center;
+          color: var(--white);
+          padding: 60px 30px;
+          border-radius: 20px;
+          box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      }
+
+      .banner-callout.purple {
+          background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(109, 40, 217, 0.88) 100%),
+          url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat;
+      }
+
+      .banner-callout.blue {
+          background: linear-gradient(135deg, rgba(10, 37, 64, 0.92) 0%, rgba(2, 132, 199, 0.88) 100%),
+          url('https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat;
       }
 
       /* Footer */
       footer {
           background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
           color: var(--white);
-          padding: 70px 5% 30px 5%;
+          padding: 80px 5% 30px 5%;
       }
 
       .footer-grid {
@@ -902,7 +928,7 @@
       }
 
       .footer-col h4 {
-          font-size: 1.05rem;
+          font-size: 1.1rem;
           margin-bottom: 20px;
           color: var(--white);
       }
@@ -919,7 +945,6 @@
           color: #94a3b8;
           font-size: 0.9rem;
           transition: color 0.2s;
-          cursor: pointer;
       }
 
       .footer-col ul li a:hover {
@@ -931,9 +956,8 @@
           margin: 0 auto;
           border-top: 1px solid #334155;
           padding-top: 30px;
-          font-size: 0.78rem;
+          font-size: 0.8rem;
           color: #94a3b8;
-          line-height: 1.5;
       }
 
       /* Modals */
@@ -941,36 +965,30 @@
           display: none;
           position: fixed;
           top: 0; left: 0; width: 100%; height: 100%;
-          background-color: rgba(10, 37, 64, 0.75);
-          backdrop-filter: blur(4px);
+          background-color: rgba(15, 23, 42, 0.8);
+          backdrop-filter: blur(5px);
           z-index: 2000;
           justify-content: center;
           align-items: center;
           padding: 20px;
-          overflow-y: auto;
       }
 
       .modal-content {
-          background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-          border: 2px solid #7dd3fc;
+          background: #ffffff;
           padding: 40px;
-          border-radius: 16px;
-          max-width: 650px;
+          border-radius: 20px;
+          max-width: 600px;
           width: 100%;
           position: relative;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+          box-shadow: 0 25px 50px rgba(0,0,0,0.25);
       }
 
       .close-modal {
           position: absolute;
           top: 15px; right: 20px;
-          font-size: 1.5rem;
+          font-size: 1.8rem;
           cursor: pointer;
           color: var(--gray);
-      }
-
-      .close-modal:hover {
-          color: var(--dark);
       }
 
       .form-group {
@@ -986,70 +1004,46 @@
 
       .form-group input, .form-group textarea, .form-group select {
           width: 100%;
-          padding: 10px;
+          padding: 12px;
           border: 1px solid var(--light-gray);
-          border-radius: 4px;
-          background: #ffffff;
+          border-radius: 6px;
       }
 
-      /* Responsive Breakpoints */
+      /* Mobile Breaks */
       @media (max-width: 992px) {
-          .footer-grid {
-              grid-template-columns: 1fr 1fr;
-          }
-          .calculator-box {
-              grid-template-columns: 1fr;
-          }
-          .pricing-card.popular {
-              transform: none;
-          }
+          .about-hero-grid { grid-template-columns: 1fr; }
+          .footer-grid { grid-template-columns: 1fr 1fr; }
+          .calculator-box { grid-template-columns: 1fr; }
+          .pricing-card.popular { transform: none; }
       }
 
       @media (max-width: 768px) {
-          .hero h1 {
-              font-size: 2.2rem;
-          }
-          .hero p {
-              font-size: 1.05rem;
-          }
-          .menu-toggle {
-              display: flex;
-          }
+          .hero h1 { font-size: 2.3rem; }
+          .menu-toggle { display: flex; }
           .nav-menu {
               display: none;
               position: absolute;
-              top: 100%;
-              left: 0;
-              width: 100%;
-              background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
-              border-bottom: 2px solid var(--secondary);
+              top: 100%; left: 0; width: 100%;
+              background: #ffffff;
               flex-direction: column;
-              padding: 20px;
-              box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+              padding: 25px;
+              box-shadow: 0 10px 25px rgba(0,0,0,0.15);
               gap: 15px;
           }
-          .nav-menu.active {
-              display: flex;
-          }
-          .footer-grid {
-              grid-template-columns: 1fr;
-          }
-          .top-bar {
-              justify-content: center;
-              text-align: center;
-          }
+          .nav-menu.active { display: flex; }
+          .footer-grid { grid-template-columns: 1fr; }
       }
   </style>
 </head>
 <body>
 
-<!-- Utility Bar -->
+<!-- Top Bar -->
 <div class="top-bar">
   <div class="top-bar-links">
-    <a href="javascript:void(0)" onclick="openModal('contactModal')">Contact Us</a>
-    <a href="javascript:void(0)" class="pay-btn-sm" onclick="openModal('paymentModal')">Payment Portal</a>
-    <a href="javascript:void(0)" class="portal-btn-sm" onclick="openModal('portalModal')">Client Portal Login</a>
-    <a href="javascript:void(0)" class="consult-btn-sm" onclick="openModal('contactModal')">Book Consult</a>
+    <a onclick="openModal('contactModal')">Contact Us</a>
+    <a class="pay-btn-sm" onclick="openModal('paymentModal')">Payment Portal</a>
+    <a class="portal-btn-sm" onclick="openModal('portalModal')">Client Portal Login</a>
+    <a class="consult-btn-sm" onclick="openModal('contactModal')">Book Consult</a>
   </div>
 </div>
 
@@ -1061,18 +1055,16 @@
       <span class="brand-subtext">Tax and Bookkeeping</span>
     </a>
     <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
     <ul class="nav-menu" id="navMenu">
-      <li class="nav-item"><a href="#about" class="nav-link" onclick="closeMenu()">About</a></li>
-      <li class="nav-item"><a href="#services" class="nav-link" onclick="closeMenu()">Services</a></li>
-      <li class="nav-item"><a href="#industries" class="nav-link" onclick="closeMenu()">Industries</a></li>
-      <li class="nav-item"><a href="#tools" class="nav-link" onclick="closeMenu()">Tools</a></li>
-      <li class="nav-item"><a href="#resources" class="nav-link" onclick="closeMenu()">Resources</a></li>
-      <li class="nav-item"><a href="#pricing" class="nav-link" onclick="closeMenu()">Pricing</a></li>
-      <li class="nav-item"><a href="javascript:void(0)" class="nav-link nav-link-payment" onclick="openModal('paymentModal'); closeMenu();">Make Payment</a></li>
+      <li><a href="#about" class="nav-link" onclick="closeMenu()">About</a></li>
+      <li><a href="#services" class="nav-link" onclick="closeMenu()">Services</a></li>
+      <li><a href="#industries" class="nav-link" onclick="closeMenu()">Industries</a></li>
+      <li><a href="#tools" class="nav-link" onclick="closeMenu()">Tools</a></li>
+      <li><a href="#resources" class="nav-link" onclick="closeMenu()">Resources</a></li>
+      <li><a href="#pricing" class="nav-link" onclick="closeMenu()">Pricing</a></li>
+      <li><a href="javascript:void(0)" class="nav-link nav-link-payment" onclick="openModal('paymentModal'); closeMenu();">Make Payment</a></li>
     </ul>
   </div>
 </header>
@@ -1084,14 +1076,14 @@
     <p>From monthly tax and bookkeeping to year-end prep, we handle the numbers so you can focus on growing your business.</p>
     <div class="hero-cta">
       <button class="btn btn-yellow" onclick="openModal('contactModal')">🏷️ Get a Quote</button>
-      <button class="btn btn-primary" onclick="openModal('contactModal')">📅 Schedule Consultation</button>
+      <button class="btn btn-purple" onclick="openModal('contactModal')">📅 Schedule Consultation</button>
       <button class="btn btn-secondary" onclick="scrollToSection('pricing')">💰 View Pricing</button>
     </div>
   </div>
 </section>
 
 <!-- About Section -->
-<div class="bg-soft-blue">
+<div class="bg-about">
   <section id="about" class="section-padding">
     <div class="section-header">
       <h2>About EquivoraFinancial</h2>
@@ -1103,68 +1095,95 @@
       </div>
     </div>
 
-    <!-- Mission Statement -->
-    <div class="mission-box">
-      <h3>Our Mission</h3>
-      <blockquote>
-        "To deliver precise, timely tax and bookkeeping that empowers Connecticut small‑business owners with the financial clarity and confidence they need to make smart decisions and grow their companies."
-      </blockquote>
+    <!-- About Hero Grid -->
+    <div class="about-hero-grid">
+      <div class="about-img-frame">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000" alt="EquivoraFinancial Team & Strategy">
+        <div class="about-img-overlay">
+          <h4>Dedicated Advisory Support</h4>
+          <p style="font-size: 0.9rem;">Empowering small business owners across Connecticut with reliable financials.</p>
+        </div>
+      </div>
+
+      <div class="mission-box">
+        <h3>Our Mission</h3>
+        <blockquote>
+          "To deliver precise, timely tax and bookkeeping that empowers Connecticut small‑business owners with the financial clarity and confidence they need to make smart decisions and grow their companies."
+        </blockquote>
+      </div>
     </div>
 
-    <!-- Key Statistics -->
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-number">100+</div>
-        <div class="stat-label">Businesses Served</div>
+        <div style="font-weight: 700; color: var(--gray);">Businesses Served</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">98%</div>
-        <div class="stat-label">On-Time Delivery</div>
+        <div style="font-weight: 700; color: var(--gray);">On-Time Delivery</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">24hr</div>
-        <div class="stat-label">Response Time</div>
+        <div style="font-weight: 700; color: var(--gray);">Response Time</div>
       </div>
     </div>
 
-    <!-- Our Values -->
+    <!-- Our Core Values -->
     <div style="margin-top: 60px;">
       <div style="text-align: center; margin-bottom: 40px;">
-        <h3 style="font-size: 1.8rem; color: var(--primary);">Our Values</h3>
-        <p style="color: var(--gray);">The principles that guide everything we do for Connecticut businesses.</p>
+        <h3 style="font-size: 2rem; color: var(--primary);">Our Core Values</h3>
       </div>
-
       <div class="values-grid">
-        <div class="value-card">
-          <div class="icon">🎯</div>
-          <h4>Accuracy First</h4>
-          <p>Every number reconciled, every transaction categorized correctly. No shortcuts, no guesswork.</p>
+        <div class="value-card" style="border-left-color: #0073e6;">
+          <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=600" alt="Accuracy First" class="value-card-img">
+          <div class="value-card-body">
+            <div class="value-card-header">
+              <div class="icon">🎯</div>
+              <h4>Accuracy First</h4>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--gray);">Every number reconciled, every transaction categorized correctly. No shortcuts, no guesswork.</p>
+          </div>
         </div>
 
-        <div class="value-card">
-          <div class="icon">💬</div>
-          <h4>Plain English Communication</h4>
-          <p>No jargon, no confusing reports. We explain your finances in terms you can understand and act on.</p>
+        <div class="value-card" style="border-left-color: #8b5cf6;">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" alt="Plain English Communication" class="value-card-img">
+          <div class="value-card-body">
+            <div class="value-card-header">
+              <div class="icon">💬</div>
+              <h4>Plain English</h4>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--gray);">No jargon, no confusing reports. We explain your finances in terms you can understand and act on.</p>
+          </div>
         </div>
 
-        <div class="value-card">
-          <div class="icon">🤝</div>
-          <h4>Connecticut Values</h4>
-          <p>Honest, reliable, and hardworking. We treat your business like our own and your success like our success.</p>
+        <div class="value-card" style="border-left-color: #f59e0b;">
+          <img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&q=80&w=600" alt="Connecticut Values" class="value-card-img">
+          <div class="value-card-body">
+            <div class="value-card-header">
+              <div class="icon">🤝</div>
+              <h4>CT Values</h4>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--gray);">Honest, reliable, and hardworking. We treat your business like our own and your success as priority.</p>
+          </div>
         </div>
 
-        <div class="value-card">
-          <div class="icon">⚙️</div>
-          <h4>Technology + Touch</h4>
-          <p>Modern tools for efficiency, human expertise for accuracy. The best of both worlds for your books.</p>
+        <div class="value-card" style="border-left-color: #10b981;">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="Technology + Touch" class="value-card-img">
+          <div class="value-card-body">
+            <div class="value-card-header">
+              <div class="icon">⚙️</div>
+              <h4>Tech + Touch</h4>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--gray);">Modern cloud tools for speed, personal human expertise for absolute confidence.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </div>
 
-<!-- Services Section -->
-<div class="bg-gradient-light">
+<!-- Core Practice Services -->
+<div class="bg-services">
   <section id="services" class="section-padding">
     <div class="section-header">
       <h2>Core Practice Services</h2>
@@ -1172,257 +1191,75 @@
     </div>
 
     <div class="services-grid">
-      <!-- Card 1: Monthly Bookkeeping -->
       <div class="service-card">
-        <div>
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800" alt="Monthly Bookkeeping" class="service-img-header">
+        <div class="service-body">
           <h3>Monthly Bookkeeping</h3>
-          <p class="service-description">Bank reconciliations, transaction categorization, and monthly financial statements delivered on time.</p>
-
+          <p style="color: var(--gray); margin-bottom: 20px;">Bank reconciliations, transaction categorization, and monthly financial statements delivered on time.</p>
           <div class="service-block">
             <h4>✅ What You Get</h4>
             <ul>
               <li>Bank & credit card reconciliation</li>
               <li>Transaction categorization</li>
               <li>P&L, Balance Sheet, Cash Flow statements</li>
-              <li>Monthly financial summary</li>
-              <li>Email support (24-hour response)</li>
-              <li>Document management system access</li>
             </ul>
           </div>
-
-          <div class="service-block">
-            <h4>🎯 Who This Is For</h4>
-            <ul>
-              <li>Established businesses with regular transactions</li>
-              <li>Companies needing monthly financial visibility</li>
-              <li>Businesses preparing for growth or funding</li>
-              <li>Organizations wanting to stay tax-ready year-round</li>
-            </ul>
-          </div>
-
-          <div class="service-block">
-            <h4>📋 Deliverables</h4>
-            <ul>
-              <li>Reconciled books by 15th of each month</li>
-              <li>Monthly financial statement package</li>
-              <li>Financial summary with key insights</li>
-              <li>Clean, categorized transaction records</li>
-            </ul>
-          </div>
-
           <div class="service-block">
             <h4>⏰ Timeline</h4>
-            <p style="font-size: 0.9rem; color: var(--dark); font-weight: 500;">Monthly delivery by the 15th, guaranteed</p>
-          </div>
-
-          <div class="service-block">
-            <h4>❓ Common Questions</h4>
-            <div class="faq-item">
-              <strong>What if my books are messy when we start?</strong>
-              We'll include basic cleanup in your first month, or recommend our dedicated Clean-Up service for complex situations.
-            </div>
-            <div class="faq-item">
-              <strong>Can you work with my existing QuickBooks file?</strong>
-              Yes! We work with QuickBooks Online, Desktop, Xero, and Zoho Books. We can also help you migrate to a better platform.
-            </div>
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--dark);">Monthly delivery by the 15th, guaranteed</p>
           </div>
         </div>
-
         <div class="service-actions">
-          <button class="btn btn-yellow" onclick="openModal('contactModal')">Get a Quote</button>
-          <button class="btn btn-primary" onclick="openModal('contactModal')">Get Started</button>
-          <button class="btn btn-secondary" style="border-color: var(--primary); color: var(--primary); background: #e0f2fe;" onclick="scrollToSection('pricing')">See Pricing</button>
+          <button class="btn btn-yellow" style="flex:1;" onclick="openModal('contactModal')">Get Quote</button>
+          <button class="btn btn-primary" style="flex:1;" onclick="scrollToSection('pricing')">See Pricing</button>
         </div>
       </div>
 
-      <!-- Card 2: Clean-Up & Catch-Up -->
       <div class="service-card">
-        <div>
+        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=800" alt="Clean Up and Catch Up" class="service-img-header">
+        <div class="service-body">
           <h3>🧹 Clean-Up & Catch-Up</h3>
-          <p class="service-description">Fix months or years of backlog, uncategorized transactions, and messy chart of accounts.</p>
-
+          <p style="color: var(--gray); margin-bottom: 20px;">Fix months or years of backlog, uncategorized transactions, and messy chart of accounts.</p>
           <div class="service-block">
             <h4>✅ What You Get</h4>
             <ul>
               <li>Backlog months/years cleanup</li>
-              <li>Uncategorized transaction review & categorization</li>
+              <li>Uncategorized transaction review</li>
               <li>Chart of accounts reorganization</li>
-              <li>Recreate missing financial statements</li>
-              <li>Bank reconciliation correction</li>
-              <li>Duplicate transaction removal</li>
             </ul>
           </div>
-
-          <div class="service-block">
-            <h4>🎯 Who This Is For</h4>
-            <ul>
-              <li>Businesses behind on bookkeeping</li>
-              <li>Companies with messy QuickBooks files</li>
-              <li>Organizations preparing for tax season</li>
-              <li>Businesses switching bookkeepers</li>
-            </ul>
-          </div>
-
-          <div class="service-block">
-            <h4>📋 Deliverables</h4>
-            <ul>
-              <li>Fully cleaned and reconciled books</li>
-              <li>Organized chart of accounts</li>
-              <li>Complete financial statements for all periods</li>
-              <li>Documentation of all changes made</li>
-            </ul>
-          </div>
-
           <div class="service-block">
             <h4>⏰ Timeline</h4>
-            <p style="font-size: 0.9rem; color: var(--dark); font-weight: 500;">2-6 weeks depending on complexity</p>
-          </div>
-
-          <div class="service-block">
-            <h4>❓ Common Questions</h4>
-            <div class="faq-item">
-              <strong>How far back can you go?</strong>
-              We regularly clean up 2-3 years of books. We've successfully handled cleanup projects going back 5+ years.
-            </div>
-            <div class="faq-item">
-              <strong>What if I'm missing bank statements?</strong>
-              We can help you request missing statements from your bank, or work with whatever records you have available.
-            </div>
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--dark);">2-6 weeks depending on complexity</p>
           </div>
         </div>
-
         <div class="service-actions">
-          <button class="btn btn-yellow" onclick="openModal('contactModal')">Get a Quote</button>
-          <button class="btn btn-primary" onclick="openModal('contactModal')">Get Started</button>
-          <button class="btn btn-secondary" style="border-color: var(--primary); color: var(--primary); background: #e0f2fe;" onclick="scrollToSection('pricing')">See Pricing</button>
+          <button class="btn btn-yellow" style="flex:1;" onclick="openModal('contactModal')">Get Quote</button>
+          <button class="btn btn-primary" style="flex:1;" onclick="scrollToSection('pricing')">See Pricing</button>
         </div>
       </div>
 
-      <!-- Card 3: Setup & Migration -->
       <div class="service-card">
-        <div>
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Setup and Migration" class="service-img-header">
+        <div class="service-body">
           <h3>⚙️ Setup & Migration</h3>
-          <p class="service-description">QuickBooks Online, Xero, or Zoho Books setup with custom chart of accounts and integrations.</p>
-
+          <p style="color: var(--gray); margin-bottom: 20px;">QuickBooks Online, Xero, or Zoho Books setup with custom chart of accounts and integrations.</p>
           <div class="service-block">
             <h4>✅ What You Get</h4>
             <ul>
-              <li>Software selection consultation</li>
-              <li>Complete software setup & configuration</li>
+              <li>Software setup & configuration</li>
               <li>Custom chart of accounts design</li>
               <li>Bank & credit card connections</li>
-              <li>App integrations (inventory, payroll, etc.)</li>
-              <li>Data migration from old system</li>
-              <li>User training & documentation</li>
             </ul>
           </div>
-
-          <div class="service-block">
-            <h4>🎯 Who This Is For</h4>
-            <ul>
-              <li>New businesses starting bookkeeping</li>
-              <li>Companies switching from spreadsheets</li>
-              <li>Organizations upgrading software</li>
-              <li>Businesses needing better integrations</li>
-            </ul>
-          </div>
-
-          <div class="service-block">
-            <h4>📋 Deliverables</h4>
-            <ul>
-              <li>Fully configured bookkeeping system</li>
-              <li>Migrated historical data</li>
-              <li>Custom chart of accounts</li>
-              <li>Connected bank feeds</li>
-              <li>User guide & training materials</li>
-            </ul>
-          </div>
-
           <div class="service-block">
             <h4>⏰ Timeline</h4>
-            <p style="font-size: 0.9rem; color: var(--dark); font-weight: 500;">1-2 weeks for setup, 2-4 weeks including migration</p>
-          </div>
-
-          <div class="service-block">
-            <h4>❓ Common Questions</h4>
-            <div class="faq-item">
-              <strong>Which software do you recommend?</strong>
-              QuickBooks Online for most small businesses. We'll assess your specific needs and recommend the best fit.
-            </div>
-            <div class="faq-item">
-              <strong>Can you migrate from QuickBooks Desktop?</strong>
-              Yes! We handle migrations from Desktop, Excel, other software, or paper records.
-            </div>
+            <p style="font-size: 0.9rem; font-weight: 600; color: var(--dark);">1-2 weeks setup, 2-4 weeks migration</p>
           </div>
         </div>
-
         <div class="service-actions">
-          <button class="btn btn-yellow" onclick="openModal('contactModal')">Get a Quote</button>
-          <button class="btn btn-primary" onclick="openModal('contactModal')">Get Started</button>
-          <button class="btn btn-secondary" style="border-color: var(--primary); color: var(--primary); background: #e0f2fe;" onclick="scrollToSection('pricing')">See Pricing</button>
-        </div>
-      </div>
-
-      <!-- Card 4: Accounts Payable -->
-      <div class="service-card">
-        <div>
-          <h3>📤 Accounts Payable</h3>
-          <p class="service-description">Bill pay workflows, vendor management, and streamlined payment processes.</p>
-
-          <div class="service-block">
-            <h4>✅ What You Get</h4>
-            <ul>
-              <li>Bill pay workflow setup</li>
-              <li>Vendor management system</li>
-              <li>AP aging reports</li>
-              <li>Payment tracking & scheduling</li>
-              <li>Vendor communication management</li>
-              <li>Cash flow optimization guidance</li>
-            </ul>
-          </div>
-
-          <div class="service-block">
-            <h4>🎯 Who This Is For</h4>
-            <ul>
-              <li>Companies with multiple vendors</li>
-              <li>Organizations wanting better expense control</li>
-              <li>Businesses with complex bill pay needs</li>
-              <li>Teams needing approval workflows</li>
-            </ul>
-          </div>
-
-          <div class="service-block">
-            <h4>📋 Deliverables</h4>
-            <ul>
-              <li>Organized vendor database</li>
-              <li>Weekly AP aging reports</li>
-              <li>Payment workflow documentation</li>
-              <li>Monthly AP summaries</li>
-            </ul>
-          </div>
-
-          <div class="service-block">
-            <h4>⏰ Timeline</h4>
-            <p style="font-size: 0.9rem; color: var(--dark); font-weight: 500;">Ongoing monthly service with 1-week setup</p>
-          </div>
-
-          <div class="service-block">
-            <h4>❓ Common Questions</h4>
-            <div class="faq-item">
-              <strong>Do you actually pay our bills?</strong>
-              We set up the workflow and can prepare bills for approval, but you maintain control over all payments.
-            </div>
-            <div class="faq-item">
-              <strong>Can you help with vendor negotiations?</strong>
-              We provide payment history analysis and can suggest payment terms optimization strategies.
-            </div>
-          </div>
-        </div>
-
-        <div class="service-actions">
-          <button class="btn btn-yellow" onclick="openModal('contactModal')">Get a Quote</button>
-          <button class="btn btn-primary" onclick="openModal('contactModal')">Get Started</button>
-          <button class="btn btn-secondary" style="border-color: var(--primary); color: var(--primary); background: #e0f2fe;" onclick="scrollToSection('pricing')">See Pricing</button>
+          <button class="btn btn-yellow" style="flex:1;" onclick="openModal('contactModal')">Get Quote</button>
+          <button class="btn btn-primary" style="flex:1;" onclick="scrollToSection('pricing')">See Pricing</button>
         </div>
       </div>
     </div>
@@ -1430,168 +1267,47 @@
 </div>
 
 <!-- Industries Section -->
-<div class="bg-soft-teal">
+<div class="bg-industries">
   <section id="industries" class="section-padding">
     <div class="section-header">
       <h2>Specialized Expertise for Your Industry</h2>
-      <p>We don't just handle your books—we understand your business model, cash flow patterns, tax requirements, and the unique challenges you face every day.</p>
+      <p>We don't just handle your books—we understand your business model, cash flow patterns, and unique tax requirements.</p>
     </div>
 
     <div class="grid-2-col" style="margin-bottom: 60px;">
-      <!-- Industry 1: Owner-Operator Trucking -->
       <div class="industry-card">
-        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800" alt="Semi-truck on highway" class="industry-card-img">
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800" alt="Trucking Industry" class="industry-card-img">
         <div class="industry-card-body">
           <div class="industry-card-header">
-            <h3>🚛 Owner-Operator Trucking & Logistics</h3>
+            <h3>🚛 Owner-Operator Trucking</h3>
           </div>
-
           <div class="industry-section-block pain-points">
-            <h4>Pain Points We Solve:</h4>
+            <h4>Pain Points Solved:</h4>
             <ul>
               <li>Fuel receipts scattered everywhere</li>
-              <li>Maintenance costs hard to track</li>
-              <li>Per-diem calculations unclear</li>
               <li>IFTA reporting headaches</li>
-              <li>Load settlements hard to reconcile</li>
+              <li>Per-diem calculations unclear</li>
             </ul>
           </div>
-
-          <div class="industry-section-block solutions">
-            <h4>Our Solution:</h4>
-            <ul>
-              <li>Automated fuel & maintenance categorization</li>
-              <li>Per-diem tracking and compliance</li>
-              <li>IFTA-ready mileage data</li>
-              <li>Quarterly profit analysis by route</li>
-              <li>Load settlement reconciliation</li>
-            </ul>
-          </div>
-          <button class="btn btn-yellow" style="width: 100%; margin-top: 15px;" onclick="openModal('contactModal')">Get Owner-Operator Quote</button>
+          <button class="btn btn-yellow" style="width: 100%;" onclick="openModal('contactModal')">Get Owner-Operator Quote</button>
         </div>
       </div>
 
-      <!-- Industry 2: eCommerce -->
       <div class="industry-card">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800" alt="eCommerce fulfillment and shipping" class="industry-card-img">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800" alt="eCommerce" class="industry-card-img">
         <div class="industry-card-body">
           <div class="industry-card-header">
-            <h3>📦 eCommerce & Shopify/Amazon/Etsy</h3>
+            <h3>📦 eCommerce & Online Stores</h3>
           </div>
-
           <div class="industry-section-block pain-points">
-            <h4>Pain Points We Solve:</h4>
+            <h4>Pain Points Solved:</h4>
             <ul>
-              <li>Platform fees eating into margins</li>
+              <li>Platform fees eating margins</li>
               <li>COGS calculation confusion</li>
-              <li>Deposit timing doesn't match sales</li>
-              <li>Inventory valuation challenges</li>
-              <li>Multi-platform reconciliation nightmare</li>
+              <li>Multi-platform reconciliation</li>
             </ul>
           </div>
-
-          <div class="industry-section-block solutions">
-            <h4>Our Solution:</h4>
-            <ul>
-              <li>Platform fee tracking & analysis</li>
-              <li>Accurate COGS calculations</li>
-              <li>Sales-to-deposit reconciliation</li>
-              <li>Product profitability reports</li>
-              <li>Multi-platform integration</li>
-            </ul>
-          </div>
-          <button class="btn btn-yellow" style="width: 100%; margin-top: 15px;" onclick="openModal('contactModal')">Get eCommerce Quote</button>
-        </div>
-      </div>
-
-      <!-- Industry 3: Trades & Contractors -->
-      <div class="industry-card">
-        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800" alt="Contractor on site" class="industry-card-img">
-        <div class="industry-card-body">
-          <div class="industry-card-header">
-            <h3>🛠️ Trades & Contractors</h3>
-          </div>
-
-          <div class="industry-section-block pain-points">
-            <h4>Pain Points We Solve:</h4>
-            <ul>
-              <li>Job costs mixed with overhead</li>
-              <li>Receipts in truck, toolbox, everywhere</li>
-              <li>Material vs. labor tracking unclear</li>
-              <li>Project profitability unknown</li>
-              <li>Cash flow between jobs unpredictable</li>
-            </ul>
-          </div>
-
-          <div class="industry-section-block solutions">
-            <h4>Our Solution:</h4>
-            <ul>
-              <li>Job cost tracking basics</li>
-              <li>Receipt capture workflows</li>
-              <li>Material vs. labor separation</li>
-              <li>Project profitability reports</li>
-              <li>Cash flow forecasting</li>
-            </ul>
-          </div>
-          <button class="btn btn-yellow" style="width: 100%; margin-top: 15px;" onclick="openModal('contactModal')">Get Trades Quote</button>
-        </div>
-      </div>
-
-      <!-- Industry 4: Freelancers & Consultants -->
-      <div class="industry-card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800" alt="Freelancer working on laptop" class="industry-card-img">
-        <div class="industry-card-body">
-          <div class="industry-card-header">
-            <h3>💻 Freelancers & Consultants</h3>
-          </div>
-
-          <div class="industry-section-block pain-points">
-            <h4>Pain Points We Solve:</h4>
-            <ul>
-              <li>Quarterly tax estimates scary</li>
-              <li>Business vs. personal expenses mixed</li>
-              <li>Client payments irregular</li>
-              <li>Deduction opportunities missed</li>
-              <li>Time tracking for billing unclear</li>
-            </ul>
-          </div>
-
-          <div class="industry-section-block solutions">
-            <h4>Our Solution:</h4>
-            <ul>
-              <li>Quarterly tax estimate prep</li>
-              <li>Business expense categorization</li>
-              <li>Simple AP/AR tracking</li>
-              <li>Deduction optimization guidance</li>
-              <li>Time-to-billing integration</li>
-            </ul>
-          </div>
-          <button class="btn btn-yellow" style="width: 100%; margin-top: 15px;" onclick="openModal('contactModal')">Get Freelancers Quote</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Why Industry Expertise Matters -->
-    <div style="background: linear-gradient(135deg, #e0f2fe 0%, #ccfbf1 100%); border: 1px solid #99f6e4; padding: 40px; border-radius: 16px; margin-bottom: 60px; box-shadow: 0 6px 20px rgba(13, 148, 136, 0.1);">
-      <div style="text-align: center; margin-bottom: 30px;">
-        <h3 style="font-size: 1.8rem; color: var(--primary);">Why Industry Expertise Matters</h3>
-        <p style="color: var(--gray);">Generic bookkeeping services miss the nuances that can cost you money and compliance headaches.</p>
-      </div>
-      <div class="grid-3-col">
-        <div style="text-align: center; padding: 15px;">
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">🎯</div>
-          <h4 style="color: var(--primary); margin-bottom: 10px;">We Know Your Deductions</h4>
-          <p style="font-size: 0.9rem; color: var(--gray);">From fuel per-mile for truckers to home office deductions for freelancers, we catch industry-specific tax savings others miss.</p>
-        </div>
-        <div style="text-align: center; padding: 15px;">
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">📊</div>
-          <h4 style="color: var(--primary); margin-bottom: 10px;">Industry-Standard Reports</h4>
-          <p style="font-size: 0.9rem; color: var(--gray);">Get reports that matter to your business—job profitability for contractors, product margins for eCommerce, route analysis for truckers.</p>
-        </div>
-        <div style="text-align: center; padding: 15px;">
-          <div style="font-size: 2.5rem; margin-bottom: 10px;">⚡</div>
-          <h4 style="color: var(--primary); margin-bottom: 10px;">Faster Setup & Processing</h4>
-          <p style="font-size: 0.9rem; color: var(--gray);">We know your software, your workflows, and your pain points. No learning curve—we hit the ground running.</p>
+          <button class="btn btn-yellow" style="width: 100%;" onclick="openModal('contactModal')">Get eCommerce Quote</button>
         </div>
       </div>
     </div>
@@ -1599,69 +1315,126 @@
     <!-- Real Results Section -->
     <div style="margin-bottom: 60px;">
       <div style="text-align: center; margin-bottom: 40px;">
-        <h3 style="font-size: 1.8rem; color: var(--primary);">Real Results</h3>
-        <p style="color: var(--gray);">See how our industry expertise has helped businesses like yours.</p>
+        <h3 style="font-size: 2rem; color: var(--primary);">Real Results</h3>
       </div>
       <div class="grid-3-col">
         <div class="results-card">
-          <h4 style="color: var(--primary);">Owner-Operator Trucking</h4>
-          <div class="highlight">$8,000 Additional Tax Savings</div>
-          <p style="font-size: 0.88rem; color: var(--gray); margin-bottom: 10px;"><strong>Challenge:</strong> Missing per-diem deductions, fuel receipts unorganized, no job profitability tracking.</p>
-          <p style="font-size: 0.88rem; color: var(--gray); margin-bottom: 10px;"><strong>Solution:</strong> Implemented automated fuel categorization, set up proper per-diem tracking, created route profitability reports.</p>
-          <p style="font-size: 0.88rem; color: var(--dark);"><strong>Result:</strong> $8,000 in additional deductions found, 15% improvement in route selection.</p>
+          <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800" alt="Owner-Operator Trucking Results" class="results-card-img">
+          <div class="results-card-body">
+            <h4>Owner-Operator Trucking</h4>
+            <div class="highlight">$8,000 Additional Tax Savings</div>
+            <p style="font-size: 0.9rem; color: var(--gray);">Automated fuel categorization, set up proper per-diem tracking, created route profitability reports.</p>
+          </div>
         </div>
+
         <div class="results-card">
-          <h4 style="color: var(--primary);">eCommerce</h4>
-          <div class="highlight">50% Reduction in CPA Fees</div>
-          <p style="font-size: 0.88rem; color: var(--gray); margin-bottom: 10px;"><strong>Challenge:</strong> Shopify store with messy books, platform fee confusion, inventory tracking nightmare.</p>
-          <p style="font-size: 0.88rem; color: var(--gray); margin-bottom: 10px;"><strong>Solution:</strong> Automated Shopify reconciliation, proper COGS setup, integrated inventory management.</p>
-          <p style="font-size: 0.88rem; color: var(--dark);"><strong>Result:</strong> Clean books reduced CPA time by 50%, identified 20% margin improvement opportunities.</p>
+          <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&q=80&w=800" alt="eCommerce Platform Results" class="results-card-img">
+          <div class="results-card-body">
+            <h4>eCommerce Platform</h4>
+            <div class="highlight">50% Reduction in CPA Fees</div>
+            <p style="font-size: 0.9rem; color: var(--gray);">Automated Shopify reconciliation, proper COGS setup, integrated inventory management.</p>
+          </div>
         </div>
+
         <div class="results-card">
-          <h4 style="color: var(--primary);">Contractor</h4>
-          <div class="highlight">Job Profitability Clarity</div>
-          <p style="font-size: 0.88rem; color: var(--gray); margin-bottom: 10px;"><strong>Challenge:</strong> Contractor couldn't determine which jobs were profitable, cash flow unpredictable.</p>
-          <p style="font-size: 0.88rem; color: var(--gray); margin-bottom: 10px;"><strong>Solution:</strong> Set up job costing system, created project profitability dashboard, implemented cash flow forecasting.</p>
-          <p style="font-size: 0.88rem; color: var(--dark);"><strong>Result:</strong> 25% increase in profitable job selection, improved cash flow planning.</p>
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800" alt="Contractor Services Results" class="results-card-img">
+          <div class="results-card-body">
+            <h4>Contractor Services</h4>
+            <div class="highlight">Job Profitability Clarity</div>
+            <p style="font-size: 0.9rem; color: var(--gray);">Set up job costing system, created project profitability dashboard, implemented cash flow forecasting.</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Don't See Your Industry Callout -->
-    <div style="text-align: center; background: linear-gradient(135deg, rgba(10, 37, 64, 0.95) 0%, rgba(30, 58, 138, 0.92) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat; color: var(--white); padding: 50px 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
-      <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Don't See Your Industry?</h3>
-      <p style="max-width: 600px; margin: 0 auto 25px auto; color: #cbd5e1;">We work with many types of businesses. If you have unique bookkeeping needs, let's discuss how we can help.</p>
+    <div class="banner-callout purple">
+      <h3 style="font-size: 2rem; margin-bottom: 15px;">Don't See Your Industry?</h3>
+      <p style="max-width: 600px; margin: 0 auto 25px auto; color: #cbd5e1;">We work with many types of businesses. Let's discuss how we can help.</p>
       <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <button class="btn btn-yellow" onclick="openModal('contactModal')">🏷️ Get a Custom Quote</button>
+        <button class="btn btn-yellow" onclick="openModal('contactModal')">🏷️ Custom Quote</button>
         <button class="btn btn-primary" onclick="openModal('contactModal')">📞 Discuss Your Business</button>
-        <button class="btn btn-secondary" onclick="scrollToSection('services')">📋 View All Services</button>
       </div>
     </div>
   </section>
 </div>
 
-<!-- Tools Section -->
-<div class="bg-soft-blue">
+<!-- Tools Section with Visual Brand Cards -->
+<div class="bg-tools">
   <section id="tools" class="section-padding">
     <div class="section-header">
       <h2>Financial Tech Stack & Tools</h2>
       <p>We leverage industry-leading financial software to automate workflows and deliver real-time metrics.</p>
     </div>
     <div class="tools-container">
-      <div class="tool-pill">QuickBooks Online</div>
-      <div class="tool-pill">Xero Accounting</div>
-      <div class="tool-pill">Zoho Books</div>
-      <div class="tool-pill">Bill.com (AP/AR)</div>
-      <div class="tool-pill">Gusto Payroll</div>
-      <div class="tool-pill">ADP Workforce</div>
-      <div class="tool-pill">Stripe Financials</div>
-      <div class="tool-pill">Expensify</div>
+      <div class="tool-card">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400" alt="QuickBooks Online" class="tool-card-img">
+        <div class="tool-card-body">
+          <h4>QuickBooks Online</h4>
+          <span>Cloud Accounting</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=400" alt="Xero Accounting" class="tool-card-img">
+        <div class="tool-card-body">
+          <h4>Xero Accounting</h4>
+          <span>Smart Business Tools</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=400" alt="Zoho Books" class="tool-card-img">
+        <div class="tool-card-body">
+          <h4>Zoho Books</h4>
+          <span>Finance Platform</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=400" alt="Bill.com" class="tool-card-img">
+        <div class="tool-card-body">
+          <h4>Bill.com</h4>
+          <span>AP & AR Automation</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=400" alt="Gusto Payroll" class="tool-card-img">
+        <div class="tool-card-body">
+          <h4>Gusto</h4>
+          <span>Payroll & HR</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=400" alt="ADP Workforce" class="tool-card-img">
+        <div class="tool-card-body">
+          <h4>ADP Workforce</h4>
+          <span>Enterprise Payroll</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=400" alt="Stripe Financials" class="tool-card-img">
+        <div class="tool-card-body">
+          <h4>Stripe</h4>
+          <span>Payments & Financials</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <img src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&q=80&w=400" alt="Expensify" class="tool-card-img">
+        <div class="tool-card-body">
+          <h4>Expensify</h4>
+          <span>Expense Tracking</span>
+        </div>
+      </div>
     </div>
   </section>
 </div>
 
 <!-- Resources Section -->
-<div class="bg-soft-purple">
+<div class="bg-resources">
   <section id="resources" class="section-padding">
     <div class="section-header">
       <h2>Resources & Insights</h2>
@@ -1669,46 +1442,54 @@
     </div>
     <div class="grid-3-col">
       <div class="card-box">
-        <h3>Year-End Tax Planning Guide</h3>
-        <p>Actionable tax minimization strategies to review before the close of the current fiscal year.</p>
-        <a href="javascript:void(0)" style="color: var(--secondary); font-weight: 600;" onclick="openModal('contactModal')">Download Guide &rarr;</a>
+        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=600" alt="Year-End Tax Planning Guide" class="card-box-img">
+        <div class="card-box-body">
+          <div>
+            <h3>Year-End Tax Planning Guide</h3>
+            <p>Actionable tax minimization strategies to review before the close of the current fiscal year.</p>
+          </div>
+          <a style="color: #8b5cf6; font-weight: 700; cursor: pointer;" onclick="openModal('contactModal')">Download Guide &rarr;</a>
+        </div>
       </div>
       <div class="card-box">
-        <h3>Bookkeeping Checklist</h3>
-        <p>A monthly financial checklist ensuring your chart of accounts and reconciliations remain tax-ready.</p>
-        <a href="javascript:void(0)" style="color: var(--secondary); font-weight: 600;" onclick="openModal('contactModal')">Download Checklist &rarr;</a>
+        <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=600" alt="Bookkeeping Checklist" class="card-box-img">
+        <div class="card-box-body">
+          <div>
+            <h3>Bookkeeping Checklist</h3>
+            <p>A monthly financial checklist ensuring your chart of accounts remains tax-ready.</p>
+          </div>
+          <a style="color: #8b5cf6; font-weight: 700; cursor: pointer;" onclick="openModal('contactModal')">Download Checklist &rarr;</a>
+        </div>
       </div>
       <div class="card-box">
-        <h3>Tax Calendar & Deadlines</h3>
-        <p>Key federal and state tax filing deadlines for S-Corps, C-Corps, LLCs, and sole proprietorships.</p>
-        <a href="javascript:void(0)" style="color: var(--secondary); font-weight: 600;" onclick="openModal('contactModal')">View Calendar &rarr;</a>
+        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600" alt="Tax Calendar & Deadlines" class="card-box-img">
+        <div class="card-box-body">
+          <div>
+            <h3>Tax Calendar & Deadlines</h3>
+            <p>Key federal and state tax filing deadlines for S-Corps, C-Corps, LLCs, and sole proprietorships.</p>
+          </div>
+          <a style="color: #8b5cf6; font-weight: 700; cursor: pointer;" onclick="openModal('contactModal')">View Calendar &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
 </div>
 
 <!-- Pricing Section -->
-<div class="bg-gradient-light">
+<div class="bg-pricing">
   <section id="pricing" class="section-padding">
     <div class="section-header">
       <div class="pricing-badge">Simple, Transparent Pricing</div>
       <h2>Choose Your Service Package</h2>
-      <p>No hourly billing. No surprise charges. Know exactly what you'll pay each month for professional bookkeeping services.</p>
-
-      <div class="pricing-promises">
-        <div><span>✓</span> Fixed Monthly Rates</div>
-        <div><span>✓</span> No Hidden Fees</div>
-        <div><span>✓</span> Cancel Anytime</div>
-      </div>
+      <p>No hourly billing. No surprise charges. Know exactly what you'll pay each month.</p>
     </div>
 
     <!-- Pricing Calculator -->
     <div class="calculator-box">
       <div class="calculator-controls">
         <h3 style="color: var(--primary); margin-bottom: 20px;">Calculate Your Estimate</h3>
-
         <div class="form-group">
-          <label>Service Package: <span id="selectedPkgText" style="color: var(--secondary); font-weight: bold;">Growth Package</span></label>
+          <label>Package: <span id="selectedPkgText" style="color: var(--secondary);">Growth Package</span></label>
           <select id="calcPkgSelect" onchange="updateCalc()">
             <option value="349">Starter Package ($349/mo)</option>
             <option value="649" selected>Growth Package ($649/mo)</option>
@@ -1716,293 +1497,93 @@
             <option value="custom">Premium CFO Package (Custom)</option>
           </select>
         </div>
-
         <div class="form-group">
-          <label>Monthly Transactions: <span id="txnVal" style="color: var(--secondary); font-weight: bold;">150</span></label>
+          <label>Monthly Transactions: <span id="txnVal" style="color: var(--secondary);">150</span></label>
           <input type="range" id="txnRange" min="50" max="500" value="150" step="10" oninput="updateCalc()">
-          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--gray);">
-            <span>50</span>
-            <span>500+</span>
-          </div>
-          <p style="font-size: 0.75rem; color: var(--gray); margin-top: 4px;">* Used for cleanup estimate calculation</p>
-        </div>
-
-        <div class="form-group" style="margin-top: 15px;">
-          <label style="margin-bottom: 10px;">Optional Add-Ons:</label>
-          <div style="margin-bottom: 8px;">
-            <input type="checkbox" id="addonSupport" onchange="updateCalc()">
-            <label for="addonSupport" style="display: inline; font-weight: normal; font-size: 0.9rem;">On-Demand Support Hours (+$199/mo)</label>
-          </div>
-          <div>
-            <input type="checkbox" id="addonCpa" onchange="updateCalc()">
-            <label for="addonCpa" style="display: inline; font-weight: normal; font-size: 0.9rem;">Year-End CPA Prep Package (+$299 annual)</label>
-          </div>
         </div>
       </div>
 
       <div class="calc-display-card">
-        <h4>Your Estimated Monthly Cost</h4>
+        <h4>Estimated Monthly Cost</h4>
         <div class="cost-num" id="calcMonthlyTotal">$649</div>
-        <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 20px;">Monthly service cost</p>
-
-        <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; margin-bottom: 20px; text-align: left; font-size: 0.9rem;">
+        <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; margin-bottom: 20px; font-size: 0.9rem;">
           <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-            <span>Monthly Cost:</span>
-            <strong id="calcMonthlySub">$649</strong>
+            <span>Monthly Cost:</span><strong id="calcMonthlySub">$649</strong>
           </div>
           <div style="display: flex; justify-content: space-between;">
-            <span>One-time clean-up estimate:</span>
-            <strong id="calcCleanupEst">$1,500 - $2,500</strong>
+            <span>Clean-up estimate:</span><strong id="calcCleanupEst">$1,500 - $2,500</strong>
           </div>
         </div>
-
         <button class="btn btn-yellow" style="width: 100%;" onclick="openModal('contactModal')">💾 Request Formal Quote</button>
       </div>
     </div>
 
     <!-- Pricing Cards Grid -->
-    <div style="text-align: center; margin-bottom: 40px;">
-      <h3 style="font-size: 1.8rem; color: var(--primary);">Choose Your Plan</h3>
-      <p style="color: var(--gray);">Pick the plan that fits your business size and needs. Upgrade or downgrade anytime.</p>
-    </div>
-
-    <div class="grid-4-col" style="margin-bottom: 70px;">
-      <!-- Starter Package -->
+    <div class="grid-4-col" style="margin-bottom: 60px;">
       <div class="pricing-card">
         <div>
-          <div class="price-header">
-            <h3>Starter Package</h3>
-            <div class="sub">For solopreneurs, freelancers, and very small businesses</div>
-            <div class="price-amount">$349 <span>/month</span></div>
-          </div>
+          <h3>Starter</h3>
+          <p style="color: var(--gray); font-size: 0.85rem;">For solopreneurs and freelancers</p>
+          <div class="price-amount">$349 <span style="font-size: 1rem;">/mo</span></div>
           <ul class="feature-list">
-            <li><span class="check">✓</span> Monthly bank & credit card reconciliations</li>
+            <li><span class="check">✓</span> Monthly reconciliations</li>
             <li><span class="check">✓</span> Transaction categorization</li>
-            <li><span class="check">✓</span> Basic financial reports (Profit & Loss, Balance Sheet, Cash Flow)</li>
-            <li><span class="check">✓</span> Email support</li>
-            <li><span class="check">✓</span> Year-end summary package</li>
+            <li><span class="check">✓</span> Basic financial reports</li>
           </ul>
         </div>
-        <button class="btn btn-secondary" style="border-color: var(--secondary); color: var(--secondary); background: #e0f2fe; width: 100%;" onclick="openModal('contactModal')">Start with Starter</button>
+        <button class="btn btn-secondary" style="border-color: var(--secondary); color: var(--secondary); background: #e0f2fe; width: 100%;" onclick="openModal('contactModal')">Start Starter</button>
       </div>
 
-      <!-- Growth Package -->
       <div class="pricing-card popular">
         <div class="popular-tag">Most Popular</div>
         <div>
-          <div class="price-header">
-            <h3>Growth Package</h3>
-            <div class="sub">For growing businesses that need more structure</div>
-            <div class="price-amount">$649 <span>/month</span></div>
-          </div>
+          <h3>Growth</h3>
+          <p style="color: var(--gray); font-size: 0.85rem;">For growing businesses</p>
+          <div class="price-amount">$649 <span style="font-size: 1rem;">/mo</span></div>
           <ul class="feature-list">
-            <li><span class="check">✓</span> Everything in Starter, plus:</li>
-            <li><span class="check">✓</span> Accounts Payable & Accounts Receivable tracking</li>
-            <li><span class="check">✓</span> Sales tax filing & compliance reminders</li>
-            <li><span class="check">✓</span> Monthly review call (30 minutes)</li>
-            <li><span class="check">✓</span> KPI snapshot (simple dashboard)</li>
-            <li><span class="check">✓</span> Receipt management setup</li>
+            <li><span class="check">✓</span> Everything in Starter</li>
+            <li><span class="check">✓</span> AP & AR tracking</li>
+            <li><span class="check">✓</span> Monthly review call</li>
           </ul>
         </div>
-        <button class="btn btn-primary" style="width: 100%;" onclick="openModal('contactModal')">Choose Growth</button>
+        <button class="btn btn-purple" style="width: 100%;" onclick="openModal('contactModal')">Choose Growth</button>
       </div>
 
-      <!-- Scale Package -->
       <div class="pricing-card">
         <div>
-          <div class="price-header">
-            <h3>Scale Package</h3>
-            <div class="sub">For established businesses ready to scale with strategy</div>
-            <div class="price-amount">$999 <span>/month</span></div>
-          </div>
+          <h3>Scale</h3>
+          <p style="color: var(--gray); font-size: 0.85rem;">For established companies</p>
+          <div class="price-amount">$999 <span style="font-size: 1rem;">/mo</span></div>
           <ul class="feature-list">
-            <li><span class="check">✓</span> Everything in Growth, plus:</li>
-            <li><span class="check">✓</span> Payroll coordination with Gusto/ADP/QBO</li>
-            <li><span class="check">✓</span> Cash flow forecasting & budgeting</li>
-            <li><span class="check">✓</span> Break-even & profitability analysis</li>
-            <li><span class="check">✓</span> Custom KPI dashboards</li>
-            <li><span class="check">✓</span> Quarterly financial review & planning session</li>
-            <li><span class="check">✓</span> Investor/loan-ready financial reports</li>
+            <li><span class="check">✓</span> Everything in Growth</li>
+            <li><span class="check">✓</span> Payroll coordination</li>
+            <li><span class="check">✓</span> Cash flow forecasting</li>
           </ul>
         </div>
-        <button class="btn btn-secondary" style="border-color: var(--secondary); color: var(--secondary); background: #e0f2fe; width: 100%;" onclick="openModal('contactModal')">Scale Your Business</button>
+        <button class="btn btn-secondary" style="border-color: var(--secondary); color: var(--secondary); background: #e0f2fe; width: 100%;" onclick="openModal('contactModal')">Scale Business</button>
       </div>
 
-      <!-- Premium CFO Package -->
       <div class="pricing-card">
         <div>
-          <div class="price-header">
-            <h3>Premium CFO Package</h3>
-            <div class="sub">High-level financial leadership without a full-time CFO</div>
-            <div class="price-amount" style="font-size: 2.2rem;">Custom</div>
-          </div>
+          <h3>Premium CFO</h3>
+          <p style="color: var(--gray); font-size: 0.85rem;">Full financial leadership</p>
+          <div class="price-amount" style="font-size: 2.2rem;">Custom</div>
           <ul class="feature-list">
-            <li><span class="check">✓</span> Virtual CFO services (strategy, scaling, pricing analysis)</li>
-            <li><span class="check">✓</span> Financial coaching for owners/executives</li>
-            <li><span class="check">✓</span> Funding preparation (bank loans, grants, investor decks)</li>
-            <li><span class="check">✓</span> Multi-entity bookkeeping consolidation</li>
-            <li><span class="check">✓</span> Unlimited advisory calls</li>
-            <li><span class="check">✓</span> Dedicated account manager</li>
+            <li><span class="check">✓</span> Virtual CFO services</li>
+            <li><span class="check">✓</span> Financial coaching</li>
+            <li><span class="check">✓</span> Unlimited advisory</li>
           </ul>
         </div>
-        <button class="btn btn-yellow" style="width: 100%;" onclick="openModal('contactModal')">Get Custom CFO Quote</button>
+        <button class="btn btn-yellow" style="width: 100%;" onclick="openModal('contactModal')">Custom Quote</button>
       </div>
     </div>
 
-    <!-- Clean-Up & Catch-Up Pricing -->
-    <div style="margin-bottom: 70px;">
-      <div style="text-align: center; margin-bottom: 40px;">
-        <h3 style="font-size: 1.8rem; color: var(--primary);">Clean-Up & Catch-Up Pricing</h3>
-        <p style="color: var(--gray);">One-time projects to get your books back on track. Pricing based on complexity and timeline.</p>
-      </div>
-
-      <div class="grid-3-col" style="margin-bottom: 30px;">
-        <div class="cleanup-card">
-          <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 5px;">Quick Clean-Up</h4>
-          <div style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 15px;">$800 - $1,200</div>
-          <ul style="list-style: none; font-size: 0.9rem; color: var(--gray); line-height: 1.8;">
-            <li>• 3-6 months behind</li>
-            <li>• 1-2 bank accounts</li>
-            <li>• Basic categorization</li>
-            <li>• Simple reconciliation</li>
-            <li>• 1-2 week timeline</li>
-          </ul>
-        </div>
-
-        <div class="cleanup-card recommended">
-          <div class="rec-tag">Most Common</div>
-          <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 5px;">Standard Clean-Up</h4>
-          <div style="font-size: 1.5rem; font-weight: 700; color: #047857; margin-bottom: 15px;">$1,500 - $2,500</div>
-          <ul style="list-style: none; font-size: 0.9rem; color: var(--gray); line-height: 1.8;">
-            <li>• 6-12 months behind</li>
-            <li>• 3-5 bank accounts</li>
-            <li>• Chart of accounts cleanup</li>
-            <li>• Multiple reconciliations</li>
-            <li>• 2-4 week timeline</li>
-          </ul>
-        </div>
-
-        <div class="cleanup-card">
-          <h4 style="color: var(--primary); font-size: 1.2rem; margin-bottom: 5px;">Deep Clean-Up</h4>
-          <div style="font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 15px;">$3,500+</div>
-          <ul style="list-style: none; font-size: 0.9rem; color: var(--gray); line-height: 1.8;">
-            <li>• 1+ years behind</li>
-            <li>• Multiple entities</li>
-            <li>• Complete reconstruction</li>
-            <li>• Complex reconciliations</li>
-            <li>• 4-6 week timeline</li>
-          </ul>
-        </div>
-      </div>
-
-      <div style="text-align: center; background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); padding: 25px; border-radius: 8px; border: 1px solid #7dd3fc;">
-        <p style="color: var(--gray); font-size: 0.95rem; margin-bottom: 15px;">Not sure which level you need? We'll assess your situation during a free consultation.</p>
-        <button class="btn btn-primary" onclick="openModal('contactModal')">📞 Get Free Assessment</button>
-      </div>
-    </div>
-
-    <!-- What Affects Your Price -->
-    <div style="margin-bottom: 70px;">
-      <div style="text-align: center; margin-bottom: 40px;">
-        <h3 style="font-size: 1.8rem; color: var(--primary);">What Affects Your Price?</h3>
-        <p style="color: var(--gray);">Transparent factors that determine your monthly bookkeeping cost.</p>
-      </div>
-
-      <div class="grid-2-col" style="margin-bottom: 40px;">
-        <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 30px; border-radius: 10px; border: 1px solid #bae6fd;">
-          <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 1.5rem;">📊</span> Volume Factors
-          </h4>
-          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
-            <tr style="border-bottom: 1px solid #bae6fd;">
-              <td style="padding: 10px 0; font-weight: 600;">Monthly transactions</td>
-              <td style="padding: 10px 0; text-align: right; color: var(--secondary); font-weight: 600;">Primary driver</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #bae6fd;">
-              <td style="padding: 10px 0; font-weight: 600;">Number of bank accounts</td>
-              <td style="padding: 10px 0; text-align: right; color: var(--gray);">Minor impact</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #bae6fd;">
-              <td style="padding: 10px 0; font-weight: 600;">Credit cards & loans</td>
-              <td style="padding: 10px 0; text-align: right; color: #059669; font-weight: 600;">Included</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px 0; font-weight: 600;">PayPal, Stripe, etc.</td>
-              <td style="padding: 10px 0; text-align: right; color: #059669; font-weight: 600;">Included</td>
-            </tr>
-          </table>
-        </div>
-
-        <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 30px; border-radius: 10px; border: 1px solid #bae6fd;">
-          <h4 style="font-size: 1.2rem; color: var(--primary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-            <span style="font-size: 1.5rem;">⚙️</span> Complexity Factors
-          </h4>
-          <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
-            <tr style="border-bottom: 1px solid #bae6fd;">
-              <td style="padding: 10px 0; font-weight: 600;">Inventory tracking</td>
-              <td style="padding: 10px 0; text-align: right; color: var(--gray);">May increase</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #bae6fd;">
-              <td style="padding: 10px 0; font-weight: 600;">Job costing</td>
-              <td style="padding: 10px 0; text-align: right; color: var(--secondary); font-weight: 600;">Add-on service</td>
-            </tr>
-            <tr style="border-bottom: 1px solid #bae6fd;">
-              <td style="padding: 10px 0; font-weight: 600;">Multiple entities</td>
-              <td style="padding: 10px 0; text-align: right; color: var(--primary); font-weight: 600;">Custom pricing</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px 0; font-weight: 600;">Cash vs. accrual</td>
-              <td style="padding: 10px 0; text-align: right; color: #059669; font-weight: 600;">No difference</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-left: 5px solid var(--secondary); padding: 25px; border-radius: 8px; border-top: 1px solid #93c5fd; border-right: 1px solid #93c5fd; border-bottom: 1px solid #93c5fd;">
-        <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-          💡 Pricing Promise
-        </h4>
-        <p style="font-size: 0.92rem; color: var(--dark);">We'll always discuss any pricing changes with you first. If your business grows and requires a higher tier, we'll give you 30 days notice and help you budget for the change. No surprise bills, ever.</p>
-      </div>
-    </div>
-
-    <!-- Pricing FAQs -->
-    <div style="margin-bottom: 60px;">
-      <div style="text-align: center; margin-bottom: 40px;">
-        <h3 style="font-size: 1.8rem; color: var(--primary);">Pricing Questions</h3>
-      </div>
-
-      <div class="grid-2-col">
-        <div class="faq-item" style="padding: 20px;">
-          <strong style="font-size: 1rem;">What if my transaction volume changes?</strong>
-          <p style="color: var(--gray); margin-top: 5px;">We monitor your volume monthly. If you consistently exceed your plan limit, we'll discuss upgrading to the next tier with 30 days notice. Temporary spikes (like seasonal businesses) don't trigger automatic upgrades.</p>
-        </div>
-
-        <div class="faq-item" style="padding: 20px;">
-          <strong style="font-size: 1rem;">Are there setup fees?</strong>
-          <p style="color: var(--gray); margin-top: 5px;">No setup fees for monthly bookkeeping. If you need extensive cleanup or migration, that's quoted separately as a one-time project. Many clients start with cleanup, then move to monthly service.</p>
-        </div>
-
-        <div class="faq-item" style="padding: 20px;">
-          <strong style="font-size: 1rem;">Can I cancel anytime?</strong>
-          <p style="color: var(--gray); margin-top: 5px;">Yes, with 30 days written notice. We'll provide a clean handoff with all your files organized and ready for your next bookkeeper or to bring in-house. No termination fees.</p>
-        </div>
-
-        <div class="faq-item" style="padding: 20px;">
-          <strong style="font-size: 1rem;">How do you bill?</strong>
-          <p style="color: var(--gray); margin-top: 5px;">Monthly billing in advance, typically on the 1st of each month. We accept ACH bank transfers, credit cards, and checks. First month is prorated based on start date.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pricing Callout -->
-    <div style="text-align: center; background: linear-gradient(135deg, rgba(10, 37, 64, 0.95) 0%, rgba(30, 58, 138, 0.92) 100%), url('https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&q=80&w=1200') center/cover no-repeat; color: var(--white); padding: 50px 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
-      <h3 style="font-size: 1.8rem; margin-bottom: 15px;">Ready to Get Started?</h3>
+    <div class="banner-callout blue">
+      <h3 style="font-size: 2rem; margin-bottom: 15px;">Ready to Get Started?</h3>
       <p style="max-width: 600px; margin: 0 auto 25px auto; color: #cbd5e1;">Get your custom quote today and see how affordable professional bookkeeping can be.</p>
       <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <button class="btn btn-yellow" onclick="openModal('contactModal')">🏷️ Request Your Quote</button>
-        <button class="btn btn-primary" onclick="openModal('contactModal')">📅 Book Free Consultation</button>
-        <button class="btn btn-secondary" onclick="scrollToSection('pricing')">🧮 Use Calculator Above</button>
+        <button class="btn btn-yellow" onclick="openModal('contactModal')">🏷️ Request Quote</button>
+        <button class="btn btn-primary" onclick="openModal('contactModal')">📅 Book Consultation</button>
       </div>
     </div>
   </section>
@@ -2015,7 +1596,7 @@
       <div class="brand-logo" style="color: var(--white); margin-bottom: 15px;">
         EQUIVORA<span style="color: var(--accent);">FINANCIAL</span>
       </div>
-      <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px;">Accurate books. Calm business. Professional tax and bookkeeping helping small businesses stay tax-ready and cash-flow confident.</p>
+      <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px;">Accurate books. Calm business. Professional tax and bookkeeping helping small businesses stay tax-ready.</p>
       <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.8;">
         📧 contact@equivorafinancial.com<br>
         📞 (571)-484-2138
@@ -2027,7 +1608,7 @@
         <li><a href="#about">About Us</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="javascript:void(0)" onclick="openModal('contactModal')">Contact Us</a></li>
+        <li><a onclick="openModal('contactModal')">Contact Us</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -2036,32 +1617,28 @@
         <li><a href="#services">Monthly Bookkeeping</a></li>
         <li><a href="#services">Clean-Up & Catch-Up</a></li>
         <li><a href="#services">Setup & Migration</a></li>
-        <li><a href="#services">Sales Tax Filing</a></li>
-        <li><a href="#services">CFO-Lite Advisory</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Portals</h4>
       <ul>
-        <li><a href="javascript:void(0)" onclick="openModal('portalModal')">Client Portal Login</a></li>
-        <li><a href="javascript:void(0)" onclick="openModal('paymentModal')">Payment Portal</a></li>
-        <li><a href="#resources">Resources</a></li>
+        <li><a onclick="openModal('portalModal')">Client Portal Login</a></li>
+        <li><a onclick="openModal('paymentModal')">Payment Portal</a></li>
       </ul>
     </div>
   </div>
 
   <div class="disclaimer-box">
-    <p>© 2026 EquivoraFinancial Tax and Bookkeeping. All rights reserved. The information provided on this website is for general informational purposes only and does not constitute formal tax, legal, or financial advice.</p>
+    <p>© 2026 EquivoraFinancial Tax and Bookkeeping. All rights reserved.</p>
   </div>
 </footer>
 
 <!-- Modals -->
-<!-- Contact Modal -->
 <div id="contactModal" class="modal">
   <div class="modal-content">
     <span class="close-modal" onclick="closeModal('contactModal')">&times;</span>
-    <h2 style="color: var(--primary); margin-bottom: 20px;">Get a Quote / Contact Us</h2>
-    <form onsubmit="event.preventDefault(); alert('Thank you! We will issue your quote or schedule your consultation shortly.'); closeModal('contactModal');">
+    <h2 style="color: var(--primary); margin-bottom: 20px;">Contact Us / Get Quote</h2>
+    <form onsubmit="event.preventDefault(); alert('Thank you! We will issue your quote shortly.'); closeModal('contactModal');">
       <div class="form-group">
         <label>Full Name</label>
         <input type="text" required>
@@ -2071,30 +1648,19 @@
         <input type="email" required>
       </div>
       <div class="form-group">
-        <label>Service Needed</label>
-        <select>
-          <option>Monthly Bookkeeping</option>
-          <option>Clean-Up & Catch-Up</option>
-          <option>Setup & Migration</option>
-          <option>Accounts Payable / Receivable</option>
-          <option>Custom CFO Services</option>
-        </select>
+        <label>Message</label>
+        <textarea rows="4" required></textarea>
       </div>
-      <div class="form-group">
-        <label>Message / Details</label>
-        <textarea rows="4" required placeholder="Tell us about your transaction volume or accounting needs..."></textarea>
-      </div>
-      <button type="submit" class="btn btn-yellow" style="width: 100%;">Submit Quote Request</button>
+      <button type="submit" class="btn btn-yellow" style="width: 100%;">Submit Request</button>
     </form>
   </div>
 </div>
 
-<!-- Payment Modal -->
 <div id="paymentModal" class="modal">
   <div class="modal-content">
     <span class="close-modal" onclick="closeModal('paymentModal')">&times;</span>
     <h2 style="color: var(--primary); margin-bottom: 20px;">Make a Payment</h2>
-    <form onsubmit="event.preventDefault(); alert('Redirecting to secure payment processing...'); closeModal('paymentModal');">
+    <form onsubmit="event.preventDefault(); alert('Redirecting to payment gateway...'); closeModal('paymentModal');">
       <div class="form-group">
         <label>Invoice Number</label>
         <input type="text" required>
@@ -2103,12 +1669,11 @@
         <label>Amount ($)</label>
         <input type="number" required>
       </div>
-      <button type="submit" class="btn btn-primary" style="width: 100%; background-color: #10b981;">Proceed to Payment</button>
+      <button type="submit" class="btn btn-primary" style="width: 100%;">Proceed to Payment</button>
     </form>
   </div>
 </div>
 
-<!-- Client Portal Modal -->
 <div id="portalModal" class="modal">
   <div class="modal-content">
     <span class="close-modal" onclick="closeModal('portalModal')">&times;</span>
@@ -2122,20 +1687,18 @@
         <label>Password</label>
         <input type="password" required>
       </div>
-      <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+      <button type="submit" class="btn btn-purple" style="width: 100%;">Login</button>
     </form>
   </div>
 </div>
 
 <script>
   function toggleMenu() {
-    const menu = id('navMenu');
-    menu.classList.toggle('active');
+    document.getElementById('navMenu').classList.toggle('active');
   }
 
   function closeMenu() {
-    const menu = id('navMenu');
-    menu.classList.remove('active');
+    document.getElementById('navMenu').classList.remove('active');
   }
 
   function openModal(idName) {
@@ -2148,57 +1711,41 @@
 
   function scrollToSection(idName) {
     const el = document.getElementById(idName);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   }
 
-  function id(name) {
-    return document.getElementById(name);
-  }
-
-  // Dynamic Calculator Logic
   function updateCalc() {
-    const pkgSelect = id('calcPkgSelect');
-    const txnRange = id('txnRange');
-    const addonSupport = id('addonSupport');
-    const addonCpa = id('addonCpa');
+    const pkgSelect = document.getElementById('calcPkgSelect');
+    const txnRange = document.getElementById('txnRange');
 
-    id('txnVal').innerText = txnRange.value;
+    document.getElementById('txnVal').innerText = txnRange.value;
 
-    const selOpt = pkgSelect.options[pkgSelect.selectedIndex];
     let baseVal = pkgSelect.value;
-
     if (baseVal === 'custom') {
-      id('selectedPkgText').innerText = 'Premium CFO Package';
-      id('calcMonthlyTotal').innerText = 'Custom';
-      id('calcMonthlySub').innerText = 'Custom';
-      id('calcCleanupEst').innerText = 'Custom Quote';
+      document.getElementById('selectedPkgText').innerText = 'Premium CFO Package';
+      document.getElementById('calcMonthlyTotal').innerText = 'Custom';
+      document.getElementById('calcMonthlySub').innerText = 'Custom';
+      document.getElementById('calcCleanupEst').innerText = 'Custom Quote';
       return;
     }
 
-    id('selectedPkgText').innerText = selOpt.text.split(' (')[0];
+    const selOpt = pkgSelect.options[pkgSelect.selectedIndex];
+    document.getElementById('selectedPkgText').innerText = selOpt.text.split(' (')[0];
     let monthly = parseInt(baseVal);
 
-    if (addonSupport.checked) {
-      monthly += 199;
-    }
+    document.getElementById('calcMonthlyTotal').innerText = '$' + monthly;
+    document.getElementById('calcMonthlySub').innerText = '$' + monthly;
 
-    id('calcMonthlyTotal').innerText = '$' + monthly;
-    id('calcMonthlySub').innerText = '$' + monthly + (addonCpa.checked ? ' (+$299/yr CPA)' : '');
-
-    // Estimate cleanup based on transaction slider volume
     const txns = parseInt(txnRange.value);
     if (txns < 120) {
-      id('calcCleanupEst').innerText = '$800 - $1,200';
+      document.getElementById('calcCleanupEst').innerText = '$800 - $1,200';
     } else if (txns <= 300) {
-      id('calcCleanupEst').innerText = '$1,500 - $2,500';
+      document.getElementById('calcCleanupEst').innerText = '$1,500 - $2,500';
     } else {
-      id('calcCleanupEst').innerText = '$3,500+';
+      document.getElementById('calcCleanupEst').innerText = '$3,500+';
     }
   }
 
-  // Close modals when clicking outside content
   window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
       event.target.style.display = 'none';
